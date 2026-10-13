@@ -70,7 +70,8 @@ export const AdminUsersPage = () => {
       </div>
 
       <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto -mx-4 sm:mx-0">
+          <table className="w-full text-sm min-w-[600px]">
           <thead className="bg-gray-50 border-b border-gray-200">
             <tr>
               {['User', 'Email', 'Phone', 'Role', 'Department', 'Joined', 'Actions'].map((h) => (
@@ -80,8 +81,14 @@ export const AdminUsersPage = () => {
           </thead>
           <tbody className="divide-y divide-gray-100">
             {isLoading ? (
-              Array(5).fill(0).map((_, i) => (
-                <tr key={i}>{Array(7).fill(0).map((_, j) => <td key={j} className="px-4 py-3"><div className="h-4 bg-gray-100 rounded animate-pulse" /></td>)}</tr>
+              Array.from({ length: 5 }, (_, i) => (
+                <tr key={i}>
+                  {Array.from({ length: 7 }, (_, j) => (
+                    <td key={j} className="px-4 py-3">
+                      <div className="h-4 bg-gray-100 rounded animate-pulse" />
+                    </td>
+                  ))}
+                </tr>
               ))
             ) : users.length === 0 ? (
               <tr><td colSpan={7}><EmptyState title="No users found" className="py-10" /></td></tr>
@@ -99,7 +106,7 @@ export const AdminUsersPage = () => {
                   <td className="px-4 py-3"><span className={`px-2 py-0.5 rounded-full text-xs font-medium ${ROLE_BADGE[u.role] || 'bg-gray-100 text-gray-700'}`}>{u.role.replace('_', ' ')}</span></td>
                   <td className="px-4 py-3 text-gray-500 text-xs">{typeof u.departmentId === 'object' && u.departmentId ? (u.departmentId as Department).name : '—'}</td>
                   <td className="px-4 py-3 text-gray-500 text-xs">{formatDate(u.createdAt)}</td>
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 whitespace-nowrap">
                     <button onClick={() => { if (confirm('Delete this user?')) deleteUser.mutate(u.id); }} className="p-1.5 rounded hover:bg-red-50 text-gray-400 hover:text-red-600">
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -109,6 +116,7 @@ export const AdminUsersPage = () => {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Create User Modal */}

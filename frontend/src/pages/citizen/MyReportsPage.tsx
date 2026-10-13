@@ -51,18 +51,18 @@ export const MyReportsPage = () => {
       <h1 className="font-bold text-xl text-gray-900">My Reports</h1>
 
       {/* Filters */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         <Select
           options={STATUS_OPTIONS}
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="text-xs py-1.5"
+          className="text-xs py-1.5 w-full sm:w-auto"
         />
         <Select
           options={catOptions}
           value={categoryId}
           onChange={(e) => setCategoryId(e.target.value)}
-          className="text-xs py-1.5"
+          className="text-xs py-1.5 w-full sm:w-auto"
         />
       </div>
 

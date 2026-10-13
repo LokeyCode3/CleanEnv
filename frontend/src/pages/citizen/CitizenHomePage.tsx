@@ -89,7 +89,7 @@ export const CitizenHomePage = () => {
             />
           )}
           <p className="text-primary-100 text-sm relative">{timeOfDay()},</p>
-          <h1 className="text-2xl font-bold mt-1 relative">{user?.name?.split(' ')[0]} 👋</h1>
+          <h1 className="text-2xl font-bold mt-1 relative truncate min-w-0">{user?.name?.split(' ')[0]} 👋</h1>
           <p className="text-primary-200 text-sm mt-1 relative">Report a civic issue in under 2 minutes</p>
           <Button
             onClick={() => navigate('/citizen/report/new')}
@@ -104,50 +104,50 @@ export const CitizenHomePage = () => {
 
       {/* Quick stats */}
       {publicStats && (
-        <motion.div variants={prefersReduced ? {} : sectionVariants} className="grid grid-cols-3 gap-3">
-          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
-            <div className="text-2xl font-bold text-gray-900">{totalCount}</div>
-            <div className="text-xs text-gray-500 mt-0.5">Total Reports</div>
+        <motion.div variants={prefersReduced ? {} : sectionVariants} className="grid grid-cols-3 gap-2 sm:gap-3">
+          <div className="bg-white rounded-xl border border-gray-200 p-2 sm:p-4 text-center">
+            <div className="text-xl font-bold text-gray-900">{totalCount}</div>
+            <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5">Total Reports</div>
           </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
-            <div className="text-2xl font-bold text-green-600">{resolvedCount}</div>
-            <div className="text-xs text-gray-500 mt-0.5">Resolved</div>
+          <div className="bg-white rounded-xl border border-gray-200 p-2 sm:p-4 text-center">
+            <div className="text-xl font-bold text-green-600">{resolvedCount}</div>
+            <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5">Resolved</div>
           </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
-            <div className="text-2xl font-bold text-blue-600">{activeCount}</div>
-            <div className="text-xs text-gray-500 mt-0.5">Active</div>
+          <div className="bg-white rounded-xl border border-gray-200 p-2 sm:p-4 text-center">
+            <div className="text-xl font-bold text-blue-600">{activeCount}</div>
+            <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5">Active</div>
           </div>
         </motion.div>
       )}
 
       {/* Quick actions */}
-      <motion.div variants={prefersReduced ? {} : sectionVariants} className="grid grid-cols-2 gap-3">
+      <motion.div variants={prefersReduced ? {} : sectionVariants} className="grid grid-cols-2 gap-2 sm:gap-3">
         <motion.button
           onClick={() => navigate('/citizen/map')}
-          className="flex items-center gap-3 bg-white rounded-xl border border-gray-200 p-4 hover:border-primary-300 transition-all text-left"
+          className="flex items-center gap-3 bg-white rounded-xl border border-gray-200 p-3 sm:p-4 hover:border-primary-300 transition-all text-left"
           whileHover={prefersReduced ? {} : { y: -2, boxShadow: '0 8px 25px rgba(0,0,0,0.1)' }}
           whileTap={prefersReduced ? {} : { scale: 0.97 }}
         >
-          <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
             <MapPin className="w-5 h-5 text-blue-600" />
           </div>
-          <div>
-            <div className="text-sm font-medium text-gray-900">Nearby Issues</div>
-            <div className="text-xs text-gray-500">See your area</div>
+          <div className="min-w-0">
+            <div className="text-sm font-medium text-gray-900 truncate">Nearby Issues</div>
+            <div className="text-xs text-gray-500 truncate">See your area</div>
           </div>
         </motion.button>
         <motion.button
           onClick={() => navigate('/citizen/my-reports')}
-          className="flex items-center gap-3 bg-white rounded-xl border border-gray-200 p-4 hover:border-primary-300 transition-all text-left"
+          className="flex items-center gap-3 bg-white rounded-xl border border-gray-200 p-3 sm:p-4 hover:border-primary-300 transition-all text-left"
           whileHover={prefersReduced ? {} : { y: -2, boxShadow: '0 8px 25px rgba(0,0,0,0.1)' }}
           whileTap={prefersReduced ? {} : { scale: 0.97 }}
         >
-          <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center shrink-0">
             <Clock className="w-5 h-5 text-green-600" />
           </div>
-          <div>
-            <div className="text-sm font-medium text-gray-900">My Reports</div>
-            <div className="text-xs text-gray-500">Track status</div>
+          <div className="min-w-0">
+            <div className="text-sm font-medium text-gray-900 truncate">My Reports</div>
+            <div className="text-xs text-gray-500 truncate">Track status</div>
           </div>
         </motion.button>
       </motion.div>

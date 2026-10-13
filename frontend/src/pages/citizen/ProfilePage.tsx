@@ -48,7 +48,7 @@ export const ProfilePage = () => {
     <div className="space-y-6">
       {/* Avatar */}
       <div className="flex items-center gap-4">
-        <div className="w-16 h-16 rounded-full bg-primary-600 flex items-center justify-center text-white text-2xl font-bold">
+        <div className="w-16 h-16 rounded-full bg-primary-600 flex items-center justify-center text-white text-2xl font-bold shrink-0">
           {user ? getInitials(user.name) : 'U'}
         </div>
         <div>

@@ -70,8 +70,8 @@ export const NotificationsPage = () => {
                 <div className="flex items-start gap-3">
                   <Bell className={cn('w-4 h-4 mt-0.5 shrink-0', n.isRead ? 'text-gray-400' : 'text-primary-600')} />
                   <div className="flex-1 min-w-0">
-                    <div className={cn('text-sm font-medium', n.isRead ? 'text-gray-700' : 'text-gray-900')}>{n.title}</div>
-                    <div className="text-xs text-gray-600 mt-0.5 line-clamp-2">{n.message}</div>
+                    <div className={cn('text-sm font-medium break-words', n.isRead ? 'text-gray-700' : 'text-gray-900')}>{n.title}</div>
+                    <div className="text-xs text-gray-600 mt-0.5 line-clamp-2 break-words">{n.message}</div>
                     <div className="text-xs text-gray-400 mt-1">{formatRelative(n.createdAt)}</div>
                   </div>
                   {!n.isRead && <div className="w-2 h-2 rounded-full bg-primary-600 shrink-0 mt-1" />}

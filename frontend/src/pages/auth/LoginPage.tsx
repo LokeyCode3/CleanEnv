@@ -45,7 +45,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-blue-100 flex items-center justify-center p-4">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-primary-50 to-blue-100 flex items-center justify-center p-4">
       <motion.div
         className="w-full max-w-md"
         initial={prefersReduced ? false : { opacity: 0, y: 32 }}
@@ -66,7 +66,7 @@ export const LoginPage = () => {
         </div>
 
         {/* Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white rounded-2xl shadow-xl px-4 sm:px-8 py-8">
           <h2 className="text-xl font-semibold text-gray-900 mb-6">Sign In</h2>
 
           <motion.form
@@ -123,7 +123,7 @@ export const LoginPage = () => {
           </motion.p>
 
           {/* Demo credentials */}
-          <div className="mt-6 p-4 bg-gray-50 rounded-xl text-xs text-gray-600 space-y-1">
+          <div className="mt-6 p-4 bg-gray-50 rounded-xl text-xs text-gray-600 space-y-1 break-words">
             <p className="font-semibold text-gray-700 mb-2">Demo Credentials:</p>
             <p>👤 Citizen: citizen@example.com / Citizen@123</p>
             <p>🏛️ Admin: admin@pathhole.gov.in / Admin@1234</p>

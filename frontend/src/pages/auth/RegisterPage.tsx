@@ -48,7 +48,7 @@ export const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-blue-100 flex items-center justify-center p-4">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-primary-50 to-blue-100 flex items-start justify-center p-4 py-8">
       <motion.div
         className="w-full max-w-md"
         initial={prefersReduced ? false : { opacity: 0, y: 32 }}
@@ -67,7 +67,7 @@ export const RegisterPage = () => {
           <p className="text-gray-600 mt-1">Join the civic movement</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white rounded-2xl shadow-xl px-4 sm:px-8 py-8">
           <h2 className="text-xl font-semibold text-gray-900 mb-6">Create Account</h2>
 
           <motion.form

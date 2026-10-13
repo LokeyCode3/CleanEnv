@@ -95,12 +95,12 @@ export const AdminDashboard = () => {
     <AdminLayout title="Dashboard">
       {/* Stat Cards */}
       {loadingStats ? (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {Array(10).fill(0).map((_, i) => <StatCardSkeleton key={i} />)}
         </div>
       ) : (
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
           variants={prefersReduced ? {} : { hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
           initial={prefersReduced ? false : 'hidden'}
           animate="show"
