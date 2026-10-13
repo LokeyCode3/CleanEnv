@@ -160,10 +160,11 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top bar */}
-        <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center gap-4 shrink-0">
+        <header className="bg-white border-b border-gray-200 px-4 md:px-6 py-3 md:py-4 flex items-center gap-4 shrink-0 pt-safe">
           <button
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden text-gray-500 hover:text-gray-700"
+            className="lg:hidden text-gray-500 hover:text-gray-700 min-h-[44px] min-w-[44px] flex items-center justify-center -ml-2"
+            aria-label="Open navigation"
           >
             <Menu className="w-5 h-5" />
           </button>
@@ -171,7 +172,7 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
         </header>
 
         {/* Content */}
-        <main className="flex-1 overflow-y-auto p-6">
+        <main className="flex-1 overflow-y-auto p-4 md:p-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname}

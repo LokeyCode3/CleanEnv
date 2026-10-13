@@ -9,7 +9,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 
 const cardClass = (padding: boolean, className?: string) =>
   cn(
-    'bg-white rounded-xl border border-gray-200 shadow-card',
+    'bg-white rounded-xl border border-gray-200 shadow-card w-full',
     padding && 'p-6',
     className
   );

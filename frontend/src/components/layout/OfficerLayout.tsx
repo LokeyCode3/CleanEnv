@@ -25,7 +25,7 @@ export const OfficerLayout = ({ children, title }: OfficerLayoutProps) => {
   return (
     <div className="min-h-screen bg-gray-50">
       <motion.header
-        className="bg-white border-b border-gray-200 sticky top-0 z-30"
+        className="bg-white border-b border-gray-200 sticky top-0 z-30 pt-safe"
         initial={prefersReduced ? false : { y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
@@ -65,7 +65,7 @@ export const OfficerLayout = ({ children, title }: OfficerLayoutProps) => {
               </div>
               <button
                 onClick={() => { logout(); navigate('/login'); }}
-                className="text-gray-500 hover:text-red-600"
+                className="text-gray-500 hover:text-red-600 min-h-[44px] min-w-[44px] flex items-center justify-center"
                 aria-label="Logout"
               >
                 <LogOut className="w-4 h-4" />
@@ -76,7 +76,7 @@ export const OfficerLayout = ({ children, title }: OfficerLayoutProps) => {
       </motion.header>
 
       {/* Mobile bottom nav */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:hidden z-30">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:hidden z-30 pb-[env(safe-area-inset-bottom,0px)]">
         <LayoutGroup>
           <div className="grid grid-cols-3 max-w-lg mx-auto">
             {navItems.map(({ to, icon: Icon, label, end }) => (
@@ -86,7 +86,7 @@ export const OfficerLayout = ({ children, title }: OfficerLayoutProps) => {
                 end={end}
                 className={({ isActive }) =>
                   cn(
-                    'flex flex-col items-center py-2 gap-0.5 text-xs transition-colors relative',
+                    'flex flex-col items-center py-2 gap-0.5 text-xs transition-colors relative min-h-[44px] justify-center',
                     isActive ? 'text-primary-600' : 'text-gray-500'
                   )
                 }
@@ -110,7 +110,7 @@ export const OfficerLayout = ({ children, title }: OfficerLayoutProps) => {
         </LayoutGroup>
       </nav>
 
-      <main className="max-w-5xl mx-auto px-4 py-6 pb-20 md:pb-6">
+      <main className="max-w-5xl mx-auto w-full min-w-0 px-4 py-6 pb-[calc(4rem+env(safe-area-inset-bottom,0px))] md:pb-6">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
